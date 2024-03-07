@@ -284,6 +284,7 @@ def main():
         print("Preparing 2d embeddings and entropy plots")
         x_embedded_64, y_embedded_64, cmap = pp.vis_2d_tsne(preds, preds_64)
         fig_sum = plt.figure(figsize=(10, 10))
+        fig_sum.suptitle(f"Iteration: [{iteration_counter}]")
         plt.subplot(2, 2, 1)
         plt.scatter(x_embedded_64, y_embedded_64, c=cmap, cmap="prism", edgecolors="black", linewidth=0.5)
         plt.title("TSNE: 64 dim-s embedding")
