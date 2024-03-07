@@ -11,9 +11,9 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
     <em>Fig. 1. Examples of cats images.</em>
 </p>
 
-### Summary
+## Summary
 - The current repository provide the solution with using simple Convolutional NN and active learning approach.
-- At first stage images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color.
+- At first, images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color.
     - Red 
     - White
     - Black
@@ -23,12 +23,23 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
     - White-black and white-grey
     - White-red-black
     - Siam
-  
 <p align="center">
   <img alt="img-name" src=https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_classes.jpg width="600">
   <br>
     <em>Fig. 2. Examples of cats images representing 9 different classes.</em>
 </p>
+ 
+- Around of 40 images of each class (360 in total) were selected and labeled manually for the first itereation of training, and 10 images of each class (90 in total) was used for model evaluation.
+- Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
+- 
+### Active learning results
+<p align="center">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="400">
+  <br>
+    <em>Fig. 3. Results of active learning at each iteration. TSNE embedding, mean entropy, Train loss and F1 score</em>
+  </p>
+
+
 
 
 ## Repository structure:
@@ -41,9 +52,5 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 
 ### Dataset
-I used the [SegmentedCats]([https://huggingface.co/datasets/huggan/wikiart](https://drive.google.com/file/d/1r7I9vculYHCd7x-FbnpQvPhmS2AvUSAI/view?usp=sharing)) dataset containing 1318 images of cats with removed background. All images have 256x256 resolution.
+I used the **[SegmentedCats](https://drive.google.com/file/d/1r7I9vculYHCd7x-FbnpQvPhmS2AvUSAI/view?usp=sharing)** dataset containing 1318 images of cats with removed background. All images have 256x256 resolution.
 
-### Model
-Simple convolutional net model We adapted 2D UNet model from Hugging Face [diffusers package](https://github.com/huggingface/diffusers) by adding three additional embedding layers to control paining style, including artist name, genre name and style name. Before adding the style embedding to time embedding, we pass each type of style embedding through [PreNet](https://github.com/artem-gorodetskii/WikiArt-Latent-Diffusion/blob/5d37b3cc886aec9cfb077e4cb04cd3e7afaa536f/model.py#L14) modules. 
-
-The network is trained to predict the unscaled noise component using Huber loss function (it produces better results on this dataset compared to L2 loss). During evaluation, the generated latent representations are decoded into images using the pretrained [VQ-VAE](https://arxiv.org/abs/1711.00937).
