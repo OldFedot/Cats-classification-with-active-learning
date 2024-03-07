@@ -23,18 +23,17 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
     - White-black and white-grey
     - White-red-black
     - Siam
+- Around of 40 images of each class (360 in total) were selected and labeled manually for the first itereation of training, and 10 images of each class (90 in total) was used for model evaluation.
+- Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
 <p align="center">
   <img alt="img-name" src=https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_classes.jpg width="600">
   <br>
     <em>Fig. 2. Examples of cats images representing 9 different classes.</em>
 </p>
- 
-- Around of 40 images of each class (360 in total) were selected and labeled manually for the first itereation of training, and 10 images of each class (90 in total) was used for model evaluation.
-- Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
-- 
+
 ### Active learning results
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="400">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="600">
   <br>
     <em>Fig. 3. Results of active learning at each iteration. TSNE embedding, mean entropy, Train loss and F1 score</em>
   </p>
