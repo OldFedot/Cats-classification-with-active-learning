@@ -6,7 +6,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 - It is necessary to visualize the whole dataset
 - The use of pre-trained models is not allowed
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_data_example.jpg" width="400">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_data_example.jpg" width="400" height="400>
   <br>
     <em>Fig. 1. Examples of cats images.</em>
 </p>
