@@ -33,11 +33,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 - Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
 - 
 ### Active learning results
-<p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="800">
-  <br>
-    <em>Fig. 3. Results of active learning at each iteration. TSNE embedding, mean entropy, Train loss and F1 score</em>
-  </p>
+
 
 
 
