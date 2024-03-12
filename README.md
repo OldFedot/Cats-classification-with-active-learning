@@ -30,7 +30,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 ### Active learning results
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_classes.jpg" width="500">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="500">
   <br>
     <em>Fig. 2. Cats classes.</em>
 </p>
