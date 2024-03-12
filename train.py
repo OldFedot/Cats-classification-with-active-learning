@@ -3,83 +3,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import scipy as sp
 import numpy as np
-import cv2
 import os
-from torch.utils.data import Dataset, DataLoader
 from torchvision.transforms import transforms
+from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, accuracy_score, f1_score
-
 from model import ConvNet
 from analysis import PostProcessor
-
-
-class Cats():
-    """Class for data manipulation: store references on train/test data."""
-    def __init__(self, all_cats_folder, test_csv, train_csv):
-        """
-        Parameters:
-            all_cats_folder (str): Path to folder with all cats images.
-            test_csv (str): Path to .csv file with manual labeled test samples (~10 per each class).
-            train_csv (str): Path to .csv file with manual labeled train samples (~40 per class).
-        """
-        self.cls = {"red": 0,
-                    "white": 1,
-                    "black": 2,
-                    "grey": 3,
-                    "grey_brown_stripes": 4,
-                    "white_red": 5,
-                    "white_black_white_grey": 6,
-                    "three_colors": 7,
-                    "siam": 8}
-
-        self.root = all_cats_folder
-        self.test_cats = pd.read_csv(test_csv, index_col="fname")
-        self.train_cats = pd.read_csv(train_csv, index_col="fname")
-        self.all_cats = self.make_full_data_df()
-
-    def make_full_data_df(self):
-        """Create pandas dataframe to store references for all images."""
-        imgs = sorted(os.listdir(self.root))
-        all_cats = pd.DataFrame(index=imgs, columns=["label"])
-        all_cats.drop(self.test_cats.index, axis=0, inplace=True)
-        return all_cats
-
-    def __getitem__(self, idx):
-        """Return image by [] operator and index."""
-        img = plt.imread(os.path.join(self.root, self.all_cats.iloc[idx].name))
-        return img
-
-
-class CatsDataset(Dataset):
-    """Pytorch Dataset class, to prepare images to training."""
-    def __init__(self, root, imgs:list, labels:list, transform=None):
-        """
-        Constructor of CatsDataset class.
-        Parameters:
-             root (str): Path to folder with all cats images.
-             imgs (list): List of image names
-             labels (list): List of image labels
-             transform (torchvisions.transforms): image transformations
-        """
-        super().__init__()
-        self.root = root
-        self.imgs = imgs
-        self.labels = labels
-        self.transform = transform
-
-    def __getitem__(self, idx):
-        """Return image by [] operator and index, with applying corresponding transforms."""
-        img = plt.imread(os.path.join(self.root, self.imgs[idx]))
-        if self.transform is not None:
-            img = self.transform(img)
-        if self.labels == None:
-            return img
-        else:
-            return img, int(self.labels[idx])
-
-    def __len__(self):
-        """Return len of dataset"""
-        return len(self.imgs)
+from datahandler import Cats, CatsDataset
 
 
 class TrainTest():
@@ -284,7 +214,8 @@ def main():
         print("Preparing 2d embeddings and entropy plots")
         x_embedded_64, y_embedded_64, cmap = pp.vis_2d_tsne(preds, preds_64)
         fig_sum = plt.figure(figsize=(10, 10))
-        fig_sum.suptitle(f"Iteration: [{iteration_counter}]")
+        fig_sum.suptitle(f"Iteration: [{iteration_counter}], "
+                         f"Train size = [{(100 * len(train_dataloader.dataset) / len(full_dataloader.dataset)):.1f}%]")
         plt.subplot(2, 2, 1)
         plt.scatter(x_embedded_64, y_embedded_64, c=cmap, cmap="prism", edgecolors="black", linewidth=0.5)
         plt.title("TSNE: 64 dim-s embedding")

@@ -28,10 +28,9 @@ class ConvNet(nn.Module):
             nn.BatchNorm2d(32),
             nn.LeakyReLU(),
             nn.MaxPool2d(kernel_size=3, stride=1),
-            nn.Dropout2d(p=0.1)
+            nn.Dropout2d(p=0.2)
         )
         self.fc1 = nn.Sequential(
-            nn.Dropout(p=0.1),
             nn.Linear(800, 64),
             nn.LeakyReLU()
         )
