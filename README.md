@@ -15,9 +15,18 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 ## Summary
 - The current repository provide the solution with using simple Convolutional NN and active learning approach.
-- At first, images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color: Red, White, Black, Grey, Grey-brown with stripes, White-red, White-black and white-grey, White-red-black, Siam
-- Around of 40 images of each class (360 in total) were selected and labeled manually for the first itereation of training, and 10 images of each class (90 in total) was used for model evaluation.
+- At first, images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color: Red, White, Black, Grey, Grey-brown with stripes, White-red, White-black and white-grey, White-red-black, Siam (Figure 2.)
+
+<p align="center">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_classes.jpg" width="500">
+  <br>
+    <em>Fig. 2. Cats classes.</em>
+</p>
+
+- Around of 40 images of each class (360 in total) were selected and labeled manually for the first training iteration, and 10 images of each class (90 in total) was used for model evaluation.
 - Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
+
+
 
 ### Active learning results
 <p align="center">
