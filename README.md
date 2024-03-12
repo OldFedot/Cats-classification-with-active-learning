@@ -23,7 +23,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
     <em>Fig. 2. Cats classes.</em>
 </p>
 
-- Around of 40 images of each class (360 in total) were selected and labeled manually for the first training iteration, and 10 images of each class (90 in total) was used for model evaluation.
+- Around of 40 images of each class (360 in total) were selected and labeled manually for the first training iteration, while 10 images of each class (90 in total) were used for model evaluation.
 - Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
 
 
