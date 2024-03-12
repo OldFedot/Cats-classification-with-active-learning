@@ -10,7 +10,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 <p align="center">
   <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_data_example.jpg" width="400">
   <br>
-    <em>Fig. 1. The animation of the latent diffusion process.</em>
+    <em>Fig. 1. Examples of dataset instances.</em>
 </p>
 
 ## Summary
