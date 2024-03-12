@@ -1,37 +1,21 @@
 # Cats Segmantation Problem
-### Problem
+## Problem
 There is a fully unlabeled dataset of cats images, it is necessary to visualize it in two-dimensional space so with separated clusters. Each cluster must correspond to a specific breed or color of the cat.
-### Conditions
 
+## Conditions
 - The original dataset have to be splited to at least 6 clusters
 - It is necessary to visualize the whole dataset
 - The use of pre-trained models is not allowed
 
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_data_example.jpg" width="400" height="400>
+  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_data_example.jpg" width="400">
   <br>
-    <em>Fig. 1. Examples of cats images.</em>
+    <em>Fig. 1. The animation of the latent diffusion process.</em>
 </p>
 
 ## Summary
-
-<p align="center">
-  <img alt="img-name" src=https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_classes.jpg width="600">
-  <br>
-    <em>Fig. 2. Examples of cats images representing 9 different classes.</em>
-</p>
-
 - The current repository provide the solution with using simple Convolutional NN and active learning approach.
-- At first, images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color.
-    - Red 
-    - White
-    - Black
-    - Grey
-    - Grey-brown with stripes
-    - White-red
-    - White-black and white-grey
-    - White-red-black
-    - Siam
+- At first, images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color: Red, White, Black, Grey, Grey-brown with stripes, White-red, White-black and white-grey, White-red-black, Siam
 - Around of 40 images of each class (360 in total) were selected and labeled manually for the first itereation of training, and 10 images of each class (90 in total) was used for model evaluation.
 - Further, at each active learning iteration, another 30 images corresponded to least reliable predictions were labeled and added to training data
 
