@@ -29,11 +29,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 
 ### Active learning results
-<p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="600">
-  <br>
-    <em>Fig. 3. Results of active learning at each iteration. TSNE embedding, mean entropy, Train loss and F1 score</em>
-  </p>
+
 
 
 
