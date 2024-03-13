@@ -40,7 +40,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 ### Repository structure:
 - **[train.py](https://github.com/OldFedot/CatsSegmentation/blob/master/train.py)** is a file with complete active learning training routine.
-- **[trainer.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/trainer.py)** ------------------------
+- **[trainer.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/trainer.py)** is a file with Trainer class which can perform a single iteration of active learning
 - **[model.py](https://github.com/OldFedot/CatsSegmentation/blob/master/model.py)** is a file with model.
 - **[analysis.py](https://github.com/OldFedot/CatsSegmentation/blob/master/analysis.py)** Performs evaluation of trained model.
 - **[dataset.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/dataset.py)** is file with classes responsible for data handling.
