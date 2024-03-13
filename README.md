@@ -30,7 +30,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 ### Active learning results
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/results_tsne_loss_entropy.gif" width="600">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/assets/results_tsne_loss_entropy.gif" width="600">
   <br>
     <em>Fig. 3. Results of active learning at each iteration.</em>
 </p>
@@ -45,8 +45,12 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 - **[analysis.py](https://github.com/OldFedot/CatsSegmentation/blob/master/analysis.py)** Performs evaluation of trained model.
 - **[dataset.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/dataset.py)** is file with classes responsible for data handling.
 - the notebook **[cats_segmentation_summary.ipynb](https://github.com/OldFedot/CatsSegmentation/blob/master/cats_segmentation_summary.ipynb)** Shows the training data, model and classification results.
-- the csv **[train_iter_0.csv](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/data/seed/train_iter_0.csv)** is a file with manual labeled data for the first iteration of active learning (~40 instances per class)
-- the Summary **[test_iter_0.csv](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/data/seed/test_iter_0.csv)** is a folder with graphs of model performance at each active learning iteration step, and csv files with corresponding manual labeld training data
+- the txt **[config.txt](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/config.txt)** is a file with graphs training parameters
+- the **[assets](https://github.com/OldFedot/CatsClassificationWithActiveLearning/tree/master/assets)** is a folder with gifs and images for readme.md
+- the **[data](https://github.com/OldFedot/CatsClassificationWithActiveLearning/tree/master/data)** is a folder whith "seed" and "output" subolders. Seed contains csv files with manually labeled data. Output contains figures of model performance such as (mean entropy, train loss, f1 score) at each active learning iteration step, and csv files with corresponding manual labeld training data
+  - the csv **[train_iter_0.csv](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/data/seed/train_iter_0.csv)** is a file with manual labeled data for the first iteration of active learning (~40 instances per class)
+  - the csv **[test_iter_0.csv](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/data/seed/test_iter_0.csv)** is a file with manual labeled data for the model evaluation (10 instances per class)
+
 
 
 ### Dataset
