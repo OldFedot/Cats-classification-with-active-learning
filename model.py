@@ -4,7 +4,6 @@ class ConvNet(nn.Module):
     """Class of Convolutional Network model (AlexNet style)."""
     def __init__(self, num_classes):
         super().__init__()
-        self.dropout = nn.Dropout(p=0.1) # To avoid overfitting
         self.layer1 = nn.Sequential(
             nn.Conv2d(3, 16, kernel_size=5, stride=2, padding=2),
             nn.BatchNorm2d(16),

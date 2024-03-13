@@ -3,7 +3,7 @@ import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
 
-class PostProcessor():
+class Analyzer():
     """
     Class for analysis of ConvNet model predictions: building TSNE, extracting worst predictions and mean predictions
     entropy.
@@ -36,7 +36,7 @@ class PostProcessor():
         y_embedded_64 = xy_embedded_64[:, 1]
         return x_embedded_64, y_embedded_64, cmap
 
-    def worst_predictions(self, preds, n=49):
+    def get_worst_predictions(self, preds, n=49):
         """
         Get the least reliable predictions.
         Parameters:
@@ -50,7 +50,7 @@ class PostProcessor():
         high_N = (-entropy).argsort()[:n]
         return high_N
 
-    def mean_entropy(self, preds):
+    def get_mean_entropy(self, preds):
         """
         Calculate mean entropy of predictions.
         Parameters:
