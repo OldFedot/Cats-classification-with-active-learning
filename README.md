@@ -43,7 +43,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 - **[trainer.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/trainer.py)** ------------------------
 - **[model.py](https://github.com/OldFedot/CatsSegmentation/blob/master/model.py)** is a file with model.
 - **[analysis.py](https://github.com/OldFedot/CatsSegmentation/blob/master/analysis.py)** Performs evaluation of trained model.
-- **[dataset.py](https://github.com/OldFedot/CatsSegmentation/blob/master/datahandler.py)** is file with classes responsible for data handling.
+- **[dataset.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/dataset.py)** is file with classes responsible for data handling.
 - the notebook **[cats_segmentation_summary.ipynb](https://github.com/OldFedot/CatsSegmentation/blob/master/cats_segmentation_summary.ipynb)** Shows the training data, model and classification results.
 - the csv **[train_iter_0.csv](https://github.com/OldFedot/CatsSegmentation/blob/master/train_iter_0.csv)** is a file with manual labeled data for the first iteration of active learning (~40 instances per class)
 - the Summary **[train_iter_0.csv](https://github.com/OldFedot/CatsSegmentation/tree/master/Summary)** is a folder with graphs of model performance at each active learning iteration step, and csv files with corresponding manual labeld training data
