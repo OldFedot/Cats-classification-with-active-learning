@@ -1,4 +1,4 @@
-# Cats Segmantation Problem
+# Cats Classification Problem
 ## Problem
 There is a fully unlabeled dataset of cats images, it is necessary to visualize it in two-dimensional space so with separated clusters. Each cluster must correspond to a specific breed or color of the cat.
 
