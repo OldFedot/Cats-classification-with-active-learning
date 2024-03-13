@@ -83,7 +83,8 @@ class Trainer():
                 pred_labels = np.concatenate([pred_labels, pred.argmax(1).cpu().detach().numpy()], axis=0)
 
             score = f1_score(true_labels, pred_labels, average="macro")
-            return total_loss, score
+
+        return total_loss, score
 
     def learning_cycle(self, train_dataloader, test_dataloader, epochs):
         """
