@@ -8,7 +8,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 - The use of pre-trained models is not allowed
 
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_data_example.jpg" width="400">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/assets/cats_data_example.jpg" width="400">
   <br>
     <em>Fig. 1. Examples of dataset instances.</em>
 </p>
@@ -18,7 +18,7 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 - At first, images were inspect manually to determine possible class candidates. Split to 9 different classes were chosen with respect to fur color: Red, White, Black, Grey, Grey-brown with stripes, White-red, White-black and white-grey, White-red-black, Siam (Figure 2.)
 
 <p align="center">
-  <img alt="img-name" src="https://github.com/OldFedot/CatsSegmentation/blob/master/Summary/cats_classes.jpg" width="500">
+  <img alt="img-name" src="https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/assets/cats_classes.jpg" width="500">
   <br>
     <em>Fig. 2. Cats classes.</em>
 </p>
@@ -39,8 +39,9 @@ There is a fully unlabeled dataset of cats images, it is necessary to visualize 
 
 
 ### Repository structure:
-- **[model.py](https://github.com/OldFedot/CatsSegmentation/blob/master/model.py)** is a file with model.
 - **[train.py](https://github.com/OldFedot/CatsSegmentation/blob/master/train.py)** is a file with complete active learning training routine.
+- **[trainer.py](https://github.com/OldFedot/CatsClassificationWithActiveLearning/blob/master/trainer.py)** ------------------------
+- **[model.py](https://github.com/OldFedot/CatsSegmentation/blob/master/model.py)** is a file with model.
 - **[analysis.py](https://github.com/OldFedot/CatsSegmentation/blob/master/analysis.py)** Performs evaluation of trained model.
 - **[datahandler.py](https://github.com/OldFedot/CatsSegmentation/blob/master/datahandler.py)** is file with classes responsible for data handling.
 - the notebook **[cats_segmentation_summary.ipynb](https://github.com/OldFedot/CatsSegmentation/blob/master/cats_segmentation_summary.ipynb)** Shows the training data, model and classification results.
