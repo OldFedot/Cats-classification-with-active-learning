@@ -1,0 +1,4 @@
+batch_size 	10 	# Batch size
+new_size 	128	# Update image size. Original size is 256, so we reduced it twice
+epochs 		30 	# Number of training epochs for single active learning iteration
+n_worst 	30 	# Number of worst classified images for manual labeling at each active learning iteration

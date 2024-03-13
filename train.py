@@ -12,18 +12,26 @@ from dataset import Cats, CatsDataset
 from trainer import Trainer
 
 
+def get_params_from_config(config_file:str):
+    """ Read training parameters from configuration file."""
+    params = {}
+    with open("config.txt") as cfg:
+        for line in cfg.readlines():
+            split = line.split()
+            params[split[0]] = int(split[1])
+    print(f"Training parameters: {params}")
+    return params
+
+
 def main():
     """ Function to run trainin, evaluation and manual labeling of new data."""
     # Params
+    params = get_params_from_config("config.txt")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # Device to perform training
-    batch_size = 10 # Batch size
-    new_size = 128 # Update image size. Original size is 256, so we reduced it twice
-    epochs = 30 # Number of training epochs for single active learning iteration
-    n_worst = 30 # Number of worst classified images for manual labeling at each active learning iteration
 
     # Image pre-processing
     img_transform = transforms.Compose([transforms.ToTensor(), # Convert image to tensor
-                                        transforms.Resize(new_size), # Resize
+                                        transforms.Resize(params["new_size"]), # Resize
                                         transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Normalize img
                                         ])
 
@@ -39,8 +47,8 @@ def main():
                                imgs=cats.all_cats.index,
                                labels=None,
                                transform=img_transform)
-    test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
-    full_dataloader = DataLoader(full_dataset, batch_size=batch_size, shuffle=False)
+    test_dataloader = DataLoader(test_dataset, batch_size=params["batch_size"], shuffle=True)
+    full_dataloader = DataLoader(full_dataset, batch_size=params["batch_size"], shuffle=False)
 
     # Initialize model
     model = ConvNet(num_classes=len(cats.cls))
@@ -64,10 +72,10 @@ def main():
                                     imgs=cats.train_cats.index,
                                     labels=cats.train_cats["label"].to_list(),
                                     transform=img_transform)
-        train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_dataloader = DataLoader(train_dataset, batch_size=params["batch_size"], shuffle=True)
 
         # Training iteration on the prelabeled data
-        loss_train, loss_test, score = teacher.learning_cycle(train_dataloader, test_dataloader, epochs=epochs)
+        loss_train, loss_test, score = teacher.learning_cycle(train_dataloader, test_dataloader, epochs=params["epochs"])
 
         # Keep training summary
         total_loss_train = np.concatenate([total_loss_train, loss_train], axis=0)
@@ -99,13 +107,13 @@ def main():
         plt.grid(True)
 
         plt.subplot(2, 2, 3)
-        plt.plot([*range(epochs*(iteration_counter + 1))], total_loss_train)
+        plt.plot([*range(params["epochs"]*(iteration_counter + 1))], total_loss_train)
         plt.xlabel("Epoch")
         plt.ylabel("Train loss")
         plt.grid(True)
 
         plt.subplot(2, 2, 4)
-        plt.plot([*range(epochs * (iteration_counter + 1))], total_score)
+        plt.plot([*range(params["epochs"] * (iteration_counter + 1))], total_score)
         plt.xlabel("Epoch")
         plt.ylabel("F1 score")
         plt.grid(True)
@@ -125,7 +133,7 @@ def main():
 
         # Get and visualize the least reliable predictions
         print("Preparing worst predictions for manual labeling")
-        worst_predictions = pp.get_worst_predictions(preds, n=n_worst)
+        worst_predictions = pp.get_worst_predictions(preds, n=params["n_worst"])
 
         # Live plot for manual labeling
         print("Manual labeling...")
